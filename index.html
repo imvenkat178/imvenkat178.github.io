@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venkata Reddy Portfolio | matrixrealm.dev</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="vr-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/music-metadata-browser@3.9.1/dist/music-metadata-browser.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1>VR</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <div class="intro-text">
+                <h2>Welcome to My Portfolio</h2>
+                <p>Hey! I'm Venkata Reddy Bhimireddy, currently immersed in a Master of Science program in Computer and Information Science at Indiana University-Purdue University Indianapolis, set to graduate in May 2025. With a robust background in programming, web technologies, and software development, I'm on a mission to become a trailblazing Software Developer. I'm excited to bring my skills to the table and contribute to groundbreaking projects that push the boundaries of technology and innovation.</p>
+                <button class="btn" onclick="window.open('Venkata_Reddy_Resume.pdf', '_blank')">Download Resume</button>
+            </div>
+            <div class="intro-photo">
+                <img src="path/to/your/photo.jpg" alt="Venkata Reddy Photo">
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <!-- Add project details here -->
+                <div class="project">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1.</p>
+                </div>
+                <div class="project">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2.</p>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>This is a customizable introduction tab where you can add more information about yourself.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Feel free to reach out to me on LinkedIn, Instagram, or via Gmail!</p>
+            <ul class="contact-links">
+                <li><a href="https://www.linkedin.com/in/venkatareddy-bhimireddy/" target="_blank">
+                    <i class="fab fa-linkedin"></i></a></li>
+                <li><a href="https://www.instagram.com/imvenkat.b/" target="_blank">
+                    <i class="fab fa-instagram"></i></a></li>
+                <li><a href="mailto:bhimireddyvenkatreddy2@gmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i></a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>©2024 by Venkata Reddy Bhimireddy</p>
+    </footer>
+
+    <div class="music-player">
+        <audio id="background-music" src="Chariots Of Fire.mp3"></audio>
+        <button id="prev-btn"><i class="fas fa-backward"></i></button>
+        <button id="play-pause-btn"><i class="fas fa-play"></i></button>
+        <button id="next-btn"><i class="fas fa-forward"></i></button>
+        <div class="music-icon" id="music-icon">
+            <i class="fas fa-music"></i>
+            <img id="album-cover" src="" alt="Album Cover" style="display: none;">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
