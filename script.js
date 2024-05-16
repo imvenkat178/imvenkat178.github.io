@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicIcon = document.getElementById('music-icon');
 
     const defaultIcon = '<i class="fas fa-music"></i>';
-    const defaultCover = 'path/to/default-music-icon.png';
 
     const songs = [
         { src: 'Chariots Of Fire.mp3' },
@@ -17,7 +16,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function loadAlbumCover(src) {
         try {
-            const metadata = await musicMetadata.parseBlob(await fetch(src).then(res => res.blob()));
+            const response = await fetch(src);
+            const blob = await response.blob();
+            const metadata = await window.musicMetadata.parseBlob(blob);
             if (metadata.common.picture && metadata.common.picture.length > 0) {
                 const picture = metadata.common.picture[0];
                 const base64String = btoa(String.fromCharCode(...new Uint8Array(picture.data)));
@@ -25,13 +26,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 albumCover.style.display = 'block';
                 musicIcon.innerHTML = '';
             } else {
-                albumCover.src = defaultCover;
                 albumCover.style.display = 'none';
                 musicIcon.innerHTML = defaultIcon;
             }
         } catch (error) {
             console.error('Error extracting album cover:', error);
-            albumCover.src = defaultCover;
             albumCover.style.display = 'none';
             musicIcon.innerHTML = defaultIcon;
         }
@@ -75,8 +74,16 @@ document.addEventListener('DOMContentLoaded', function() {
         playSong();
     });
 
-    // Start playing the first song automatically on page load
-    playSong();
+
+    // Add event listener for spacebar to pause/play the music
+    document.addEventListener('keydown', function(event) {
+        if (event.code === 'Space') {
+            event.preventDefault(); // Prevent default spacebar action
+            if (audio.paused) {
+                playSong();
+            } else {
+                pauseSong();
+            }
+        }
+    });
 });
-
-

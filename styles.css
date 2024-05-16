@@ -72,9 +72,10 @@ nav ul li a {
 }
 
 .intro-photo img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    width: 400px; /* Fixed size for the image */
+    height: 400px; /* Fixed size for the image */
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the container */
 }
 
 .btn {
@@ -172,6 +173,7 @@ footer {
     height: 100%;
     border-radius: 50%;
     animation: rotate 5s linear infinite;
+    animation-play-state: paused; /* Initially paused */
 }
 
 @keyframes rotate {
