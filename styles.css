@@ -72,8 +72,8 @@ nav ul li a {
 }
 
 .intro-photo img {
-    width: 400px; /* Fixed size for the image */
-    height: 400px; /* Fixed size for the image */
+    width: 300px; /* Fixed size for the image */
+    height: 300px; /* Fixed size for the image */
     border-radius: 50%; /* Make the image circular */
     object-fit: cover; /* Ensure the image covers the container */
 }
