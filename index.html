@@ -18,8 +18,9 @@
         <nav>
             <ul>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#work-experience">Work Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="blog.html">Dev Blog</a></li>
             </ul>
         </nav>
     </header>
@@ -32,7 +33,7 @@
                 <button class="btn" onclick="window.open('Venkata_Reddy_Resume.pdf', '_blank')">Download Resume</button>
             </div>
             <div class="intro-photo">
-                <img src="Venkat.JPG" alt="Venkata Reddy Photo" class="profile-pic">
+                <img src="venkat.png" alt="Venkata Reddy Photo" class="profile-pic">
             </div>
         </section>
 
@@ -41,20 +42,25 @@
             <div class="project-list">
                 <!-- Add project details here -->
                 <div class="project">
-                    <h3>Project 1</h3>
-                    <p>Description of project 1.</p>
+                    <h3>Cab Booking Application</h3>
+                    <p id = "project-content">This project aims to detect cabs close to the user and assign them accordingly using real-time geolocation data from both the user and the driver. Developed with Spring Boot and Kafka, it stores and continuously shares real-time geolocation 
+                        information between users and cab drivers. The inclusion of Spring Security enhances the robustness of the web application, while REST API facilitates seamless communication between the server and the user.
+                    </p>
                 </div>
                 <div class="project">
-                    <h3>Project 2</h3>
-                    <p>Description of project 2.</p>
+                    <h3>Toll Bill Generator</h3>
+                    <p id = "project-content">
+                        This project generates toll bills for highway users. The frontend uses Angular for a dynamic interface, while the backend is built with Spring Boot for robust server-side architecture. Hibernate handles ORM for database interaction, and REST APIs ensure real-time communication and transactions, resulting in a streamlined toll billing process.
+                    </p>
                 </div>
                 <!-- Add more projects as needed -->
             </div>
         </section>
 
-        <section id="about">
+        <section id="work-experience">
             <h2>Work Experience</h2>
-            <p>I worked at the Cognizant Technology Solutions as a Jr.Software Engineer where my role as a Java Full Stack Developer</p>
+            <p id = "work-experience-content">I worked as a Jr. Software Engineer at Cognizant Technology Solutions as a Java Full Stack Developer. I contributed to developing a Thomson Reuters tax and accounting web application using Angular for the frontend and Spring Boot for the backend. I designed and implemented features, wrote unit tests with JUnit and Mockito, and collaborated with cross-functional teams to ensure the application met specifications and performance standards.
+            </p>
         </section>
 
         <section id="contact">
@@ -67,7 +73,7 @@
                     <i class="fab fa-instagram"></i></a></li>
                 <li><a href="mailto:bhimireddyvenkatreddy2@gmail.com" target="_blank">
                     <i class="fas fa-envelope"></i></a></li>
-                <li><a href="https://github.com/your-github-profile" target="_blank">
+                <li><a href="https://github.com/imvenkat178" target="_blank">
                     <i class="fab fa-github"></i></a></li>
             </ul>
         </section>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Kafka | Dev Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="vr-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1>VR</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Dev Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="blog-content">
+            <h2>Introduction to Kafka</h2>
+            <p>Kafka is a distributed streaming platform designed to handle high throughput and provide low-latency access to real-time data. It's widely used for building real-time data pipelines and streaming applications. Kafka's architecture comprises several key concepts, each of which contributes to its scalability, reliability, and performance.</p>
+
+            <h3>Commit Log</h3>
+            <p>Kafka operates as a distributed commit log, an append-only sequence of records. Reads and writes in Kafka are constant time O(1) operations when the record ID is known, which is a significant advantage over other structures that perform O(log N) operations on disk. Each disk seek is expensive, and the commit log architecture minimizes this cost. Additionally, reads and writes do not block each other, meaning that writing does not lock reading and vice-versa, unlike balanced trees.</p>
+            <p>For example, in a banking application, a commit log ensures that all transactions are recorded in the order they occur. If a server goes down, the commit log can be used to restore the system's state by replaying the transactions. However, a potential pitfall is that the log can grow indefinitely, requiring careful log management and retention policies.</p>
+
+            <h3>Message</h3>
+            <p>A message in Kafka is the atomic unit of data, typically a JSON object with two keys: “level” and “message.” Kafka supports various data formats, such as strings, integers, or different JSON schemas. Messages are organized into topics, which provide logical segregation similar to having different tables for holding different types of data.</p>
+            <p>For instance, in a log aggregation system, logs from different services can be sent to different topics. This way, you can query logs from a specific service without wading through logs from other services. A potential pitfall is managing schema evolution, where changes in the message format can affect consumers if not handled properly.</p>
+
+            <h3>Topics and Partitions</h3>
+            <p>Topics in Kafka provide logical segregation of messages. To handle scalability, data within a topic is split into multiple streams called "partitions." Each message in a partition has an offset (index), and consumers store this offset value to keep track of the last read message. Consumers can resume from the last read position or reset to read older messages.</p>
+            <p>For example, consider an online retail application that processes orders. Each order can be sent to a partition based on the customer ID, allowing multiple consumers to process orders in parallel, improving throughput. However, if the main database fails and there is no partitioning, the system may struggle to handle the load, leading to delays or data loss.</p>
+
+            <h3>Consumer Groups</h3>
+            <p>A single topic can be subscribed to by multiple consumer groups. This allows for load balancing and parallel processing. For instance, in an OTP service, different consumer groups can handle different aspects of message processing, such as sending SMS or email notifications.</p>
+            <p>However, a potential pitfall could be if one consumer group lags behind others, creating a bottleneck that delays the entire process. Ensuring all consumer groups process messages at a similar rate is crucial to avoid this issue.</p>
+
+            <h3>Broker</h3>
+            <p>A broker is a single Kafka server that receives messages from producers, assigns offsets, and commits them to the partition log (writing data to disk). Brokers handle the storage, retrieval, and replication of data, ensuring high availability and fault tolerance.</p>
+            <p>In a social media application, brokers can handle incoming posts, comments, and likes, ensuring they are stored reliably and available for users. However, if a broker fails and there is no redundancy, it could result in data loss or availability issues. Therefore, it's important to configure Kafka clusters with multiple brokers for redundancy.</p>
+
+            <h3>Cluster</h3>
+            <p>A Kafka cluster consists of multiple broker nodes working together to provide scalability, availability, and fault tolerance. One broker acts as the controller, managing partition assignments and monitoring broker failures. This architecture ensures that the system can handle large-scale data processing tasks efficiently.</p>
+            <p>For example, in a financial trading system, a Kafka cluster can handle high volumes of transactions with low latency, ensuring that trades are processed in real-time. If a broker fails, the cluster can reassign partitions to other brokers, maintaining system availability. However, managing a Kafka cluster can be complex, requiring careful monitoring and maintenance.</p>
+
+            <h3>Zookeeper</h3>
+            <p>Kafka uses Zookeeper for configuration and consensus management. Zookeeper tracks brokers, topics, partition assignments, leader election, and cluster metadata. However, Kafka plans to deprecate Zookeeper in the future in favor of its own quorum-based replication protocol.</p>
+            <p>In an e-commerce platform, Zookeeper can manage the configuration and coordination of various Kafka brokers, ensuring smooth operation. However, if Zookeeper fails, it can disrupt the entire system, highlighting the need for a robust configuration management solution. Additionally, Zookeeper itself needs to be managed and monitored to ensure its reliability.</p>
+
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://hackernoon.com/thorough-introduction-to-apache-kafka-6fbf2989bbc1" target="_blank">Thorough Introduction to Apache Kafka - Hacker Noon</a></li>
+                <li><a href="https://medium.com/inspiredbrilliance/kafka-basics-and-core-concepts-5fd7a68c3193" target="_blank">Kafka Basics and Core Concepts - Medium</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>©2024 by Venkata Reddy Bhimireddy</p>
+    </footer>
+</body>
+</html>

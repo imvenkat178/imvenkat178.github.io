@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Distributed Systems | Dev Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="vr-logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><h1>VR</h1></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blog.html">Dev Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="blog-content">
+            <h2>Introduction to Distributed Systems</h2>
+
+            <h3>What is a Distributed System?</h3>
+            <p>A distributed system is a collection of independent computers that appear to its users as a single coherent system. These computers communicate and coordinate their actions by passing messages to one another. Distributed systems offer several benefits, such as improved performance, scalability, and fault tolerance. They are essential for handling large-scale applications that require high availability and reliability.</p>
+
+            <h3>Why Use Distributed Systems?</h3>
+            <p>Distributed systems are used to improve performance, achieve scalability, and ensure fault tolerance. By distributing the workload across multiple machines, we can handle more data and users than a single machine could manage alone. This improves performance and ensures the system can scale to meet demand.</p>
+
+            <h3>Key Terms in Distributed Systems</h3>
+
+            <h4>Horizontal Scaling</h4>
+            <p>Horizontal scaling, also known as scaling out, involves adding more machines to a system to handle increased load. This method provides flexibility and can handle a large number of requests efficiently. For example, a web application might add more servers to distribute traffic.</p>
+            <p>In a real-world scenario, an e-commerce website experiencing a surge in traffic during a sale can add more servers to balance the load. However, if not managed correctly, horizontal scaling can lead to complexity in data synchronization and consistency across servers.</p>
+
+            <h4>Vertical Scaling</h4>
+            <p>Vertical scaling, or scaling up, involves adding more power (CPU, RAM, etc.) to an existing machine. While this can handle increased load, it has limitations and can be expensive compared to horizontal scaling. Vertical scaling is often used when the application demands more resources than what is currently available on a single server.</p>
+            <p>For instance, a database server handling complex queries might be upgraded with additional RAM and CPUs. The pitfall here is that there is a limit to how much you can scale vertically, and it can become cost-prohibitive.</p>
+
+            <h4>Partitions</h4>
+            <p>Partitions divide data into manageable chunks, allowing distributed systems to handle large datasets efficiently. For example, a database might partition data by user ID to distribute the load across multiple servers. This approach improves performance and manageability.</p>
+            <p>In a real-world scenario, a social media platform might partition user data to ensure that each server handles a subset of users, reducing the load on any single server. However, if the main database fails and there is no partitioning, the system may struggle to handle the load, leading to delays or data loss.</p>
+
+            <h4>Replicas</h4>
+            <p>Replicas are copies of data stored on multiple machines to ensure data availability and fault tolerance. For example, a distributed database might replicate data across different geographical locations to ensure access even if one location fails.</p>
+            <p>Consider a cloud storage service that replicates user files across multiple data centers. If one data center goes down, users can still access their files from another location. The challenge is to keep replicas synchronized, and inconsistencies can arise if synchronization fails.</p>
+
+            <h4>Sharding</h4>
+            <p>Sharding is a specific type of partitioning where data is split across different databases or servers. Each shard contains a portion of the data. For example, an e-commerce platform might shard its product catalog to improve search performance and scalability.</p>
+            <p>In a real-world scenario, a large online retailer might shard its inventory database by product category, ensuring faster search and retrieval. However, managing shards can become complex, especially when rebalancing data across shards or handling cross-shard queries.</p>
+
+            <h4>Fault Tolerance</h4>
+            <p>Fault tolerance is the ability of a system to continue operating properly in the event of the failure of some of its components. For example, in a distributed storage system, if one server fails, the system can still access data from another server.</p>
+            <p>In a banking system, fault tolerance ensures that transactions are processed reliably even if a server goes down. The pitfall here is the increased complexity and overhead to implement fault tolerance, which can impact performance if not optimized correctly.</p>
+
+            <h4>Load Balancing</h4>
+            <p>Load balancing distributes incoming network traffic across multiple servers to ensure no single server becomes overwhelmed. For instance, a load balancer can distribute web traffic among several web servers to optimize resource use and improve response times.</p>
+            <p>In a real-world example, an online streaming service like Netflix uses load balancing to distribute user requests across multiple servers, ensuring smooth playback without buffering. However, if the load balancer fails, it can create a single point of failure, disrupting the service.</p>
+
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://www.freecodecamp.org/news/a-thorough-introduction-to-distributed-systems-3b91562c9b3c/" target="_blank">A Thorough Introduction to Distributed Systems - freeCodeCamp</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>©2024 by Venkata Reddy Bhimireddy</p>
+    </footer>
+</body>
+</html>
