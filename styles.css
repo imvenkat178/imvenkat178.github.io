@@ -119,6 +119,7 @@ nav ul li a {
 #project-content,#work-experience-content{
     letter-spacing: 1.5px;
     word-spacing: 1.5px;
+    line-height: 2;
 }
 
 .contact-links {
